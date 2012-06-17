@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget 
+	xmlns="http://www.w3.org/ns/widgets" 
+	id="https://addons.opera.com/extensions/details/exchangerates/" 
+	defaultlocale="en" 
+	viewmodes="minimized" 
+	version="1.0">
+	
+	<name short="Reminder">
+		The Reminder
+	</name>
+	<description xml:lang="en">
+		Shows a list of notes in an Opera Speed Dial to help you remember it.
+	</description>
+	<author email="thewebdev@myopera.com">
+		M Shabeer Ali
+	</author>
+	<license href="http://www.gnu.org/licenses/gpl-3.0.html">
+		Licensed under GPL v3.0
+	</license>
+	<!-- original icon credit - http://dakirby309.deviantart.com/ -->
+	<!-- original icon license - http://creativecommons.org/licenses/by/3.0/ -->
+  	<icon src="pix/icon-64.png"/>
+	<feature name="opera:speeddial" required="true">
+		<!-- Link to open when the Speed Dial is clicked -->
+		<param name="url" value="http://whyquote.blogspot.com"/>
+	</feature> 
+	<preference name="showfor" value="4" readonly="true"/>
+	<preference name="count" value="0"/>
+</widget>
