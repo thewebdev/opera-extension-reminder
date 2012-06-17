@@ -25,6 +25,6 @@
 		<!-- Link to open when the Speed Dial is clicked -->
 		<param name="url" value="http://whyquote.blogspot.com"/>
 	</feature> 
-	<preference name="showfor" value="4" readonly="true"/>
+	<preference name="showfor" value="5" readonly="true"/>
 	<preference name="count" value="0"/>
 </widget>
