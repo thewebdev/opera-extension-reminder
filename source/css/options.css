@@ -25,18 +25,18 @@ ol {
 li {	
 	list-style-type: none;
 	margin: 3px;
-	color: #4F24D4;
+	color: #0055FF;
 	text-align:left;
 }
 a:link, a:visited, a:active {
 	margin-right: 4px;
 	padding: 0px 3px;
-	color: #111;
+	color: #D40707;
 	text-decoration:none;
 	font-weight: 400;
-	border: thin solid #FFD4D4;
+	border: thin solid #F1B6B6;
 	border-radius: 3px;
-	background: #FFD4D4;
+	background: #FFE7E7;
 }
 
 a:hover {
