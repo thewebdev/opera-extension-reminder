@@ -247,7 +247,7 @@ function load() {
 function init() {
 	/* some basic settings intialised here */
 	
-	count = widget.preferences.count;
+	count = parseInt(widget.preferences.count, 10);
 	
 	/* disable save button on start */
 	$('apply').disabled = true;
