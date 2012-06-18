@@ -1,6 +1,6 @@
 # The Reminder
 
-The Reminder is an Opera extension that displays notes in an Opera Speed Dial to help you remember it.
+The Reminder extension allows you to save notes in your Opera web browser, and displays them in an Opera Speed Dial so that you are constantly reminded about it.
 
 	Download: https://addons.opera.com/extensions/details/the-reminder/
 	Website: http://getreminder.tumblr.com/
