@@ -23,6 +23,12 @@ function Txt(v) {
 	return document.createTextNode(v);
 }	
 
+function submit() {
+	if (document.input.remind.value) {
+		addNote();
+	}
+	return false;
+}
 function status(msg) {
 	/* Used to display messages
 	   to the user */
@@ -249,6 +255,7 @@ function init() {
 	/* monitor for button clicks */
 	$('add').addEventListener('click', addNote, false); 
 	$('apply').addEventListener('click', apply, false);
+	$('input').addEventListener('submit', submit, false);
 	
 	load();
 }
