@@ -194,6 +194,9 @@ function addNote() {
 		
 	$("set").appendChild(li);
 	
+	/* clear note field */
+	document.input.remind.value = '';
+	
 	/* Enable the save button as
 	   user made changes. */
 	$('apply').disabled = false;
