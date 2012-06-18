@@ -27,4 +27,5 @@
 	</feature> 
 	<preference name="showfor" value="5" readonly="true"/>
 	<preference name="count" value="0"/>
+	<update-description href="https://extension-updates.opera.com/api/w3c-wd1/update/31943cdc-7002-41bd-a5fa-acbbfb8d18bd/"/>	
 </widget>
