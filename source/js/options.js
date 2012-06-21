@@ -104,6 +104,24 @@ function apply() {
 	var cmd, note;
 	var ul, li;
 	var save = false;
+	var delay = parseInt(widget.preferences.showfor, 10);
+	
+	i = document.input.delay.value;
+	i = parseInt(i, 10);		
+
+	if (!i) { 
+		/* Validation - delay should be a number */
+		status("Error: Display delay should be a number");
+		return;
+	} else {
+		document.input.delay.value = i;
+	}
+	
+	if (i < 1) {
+		/* Validation - interval cannot be less than 1 */
+		status("Error: Display delay can't be less than 1 second.");
+		return;			
+	}	
 	
 	for (var id in stack) {
 		if (stack[id][0] == 'add'){
@@ -145,6 +163,11 @@ function apply() {
 		/* reload dial with new settings */		
 		opera.extension.bgProcess.prepData();		
 	}
+	
+	/* store the change in display value */
+	if (i != delay) {
+		widget.preferences.showfor = i;
+	}	
 	
 	$('apply').disabled = true;	
 	return;
@@ -229,13 +252,16 @@ function addNote() {
 }
 
 function load() {
-	/* Loads the saved notes and displays 
+	/* Loads the saved values and displays 
 	   it to the user for making changes. */ 
-	   
-	var key, note;
 	
+	var delay = parseInt(widget.preferences.showfor, 10);.
+	
+	var key, note;
 	var ul, li, a, txt;
 	var inHtml = document.createDocumentFragment();
+	
+	document.input.display.value = delay;
 
 	hide("set");
 	
@@ -283,6 +309,9 @@ function init() {
 	$('add').addEventListener('click', addNote, false); 
 	$('apply').addEventListener('click', apply, false);
 	$('input').addEventListener('submit', submit, false);
+	
+	/* monitor delay input for changes */
+	$('delay').addEventListener('keypress', unlock ,false);	
 	
 	load();
 }
