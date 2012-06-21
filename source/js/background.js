@@ -276,6 +276,11 @@ function startSlide() {
 	}
 }
 
+function refresh() {
+	clearInterval(slider);
+	slider = setInterval(startSlide, parseInt(widget.preferences.showfor,10) * 1000);
+}
+
 function init() {
 	/* start */
 	prepData();

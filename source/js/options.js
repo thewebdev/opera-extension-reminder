@@ -47,12 +47,6 @@ function Txt(v) {
 	return document.createTextNode(v);
 }	
 
-function submit() {
-	if (document.input.remind.value) {
-		addNote();
-	}
-	return false;
-}
 function status(msg) {
 	/* Used to display messages
 	   to the user */
@@ -109,7 +103,7 @@ function apply() {
 	i = document.input.delay.value;
 	i = parseInt(i, 10);		
 
-	if (!i) { 
+	if ((!i) && (i != 0)) { 
 		/* Validation - delay should be a number */
 		status("Error: Display delay should be a number");
 		return;
@@ -117,7 +111,7 @@ function apply() {
 		document.input.delay.value = i;
 	}
 	
-	if (i < 1) {
+	if (i <= 0) {
 		/* Validation - interval cannot be less than 1 */
 		status("Error: Display delay can't be less than 1 second.");
 		return;			
@@ -158,15 +152,16 @@ function apply() {
 	
 	show("set");
 	
-	if (save) {
-		widget.preferences.count = count;
-		/* reload dial with new settings */		
-		opera.extension.bgProcess.prepData();		
-	}
-	
 	/* store the change in display value */
 	if (i != delay) {
 		widget.preferences.showfor = i;
+		opera.extension.bgProcess.refresh();
+	}	
+	
+	if (save) {
+		widget.preferences.count = count;
+		/* reload dial with new settings */		
+		opera.extension.bgProcess.init();		
 	}	
 	
 	$('apply').disabled = true;	
@@ -261,7 +256,7 @@ function load() {
 	var ul, li, a, txt;
 	var inHtml = document.createDocumentFragment();
 	
-	document.input.display.value = delay;
+	document.input.delay.value = delay;
 
 	hide("set");
 	
@@ -295,6 +290,14 @@ function load() {
 		}	   
 	}
 	show("set");
+}
+
+function submit() {
+	if (document.input.remind.value) {
+		addNote();
+	}
+	opera.postError("Submit");
+	return false;
 }
 
 function init() {
