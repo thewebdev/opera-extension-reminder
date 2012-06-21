@@ -70,6 +70,7 @@ function unlock() {
 	   
 	if (count === 0) {
 		$('apply').disabled = true;
+		
 	} else {
 		$('apply').disabled = false;
 	}
@@ -293,11 +294,29 @@ function load() {
 }
 
 function submit() {
+	/* When ENTER key is pressed on any form input,
+	   the form got submitted and results in a 
+	   page reload. However, it seems this form
+	   reload browser quirk, sometimes doesn't
+	   happen if there are more than one
+	   input element. Since options.html now
+	   has more than 1 input element, this event
+	   doesn't seem to be triggering. This code may
+	   no longer be necessary, but since I am 
+	   feeling lazy to test this quirk more 
+	   thoroughly this remains for now. */
+	   
 	if (document.input.remind.value) {
 		addNote();
 	}
-	opera.postError("Submit");
 	return false;
+}
+
+function enterNote(e) {
+	if (e.keyCode == 13) {
+		addNote();
+		return false;
+	}
 }
 
 function init() {
@@ -313,7 +332,8 @@ function init() {
 	$('apply').addEventListener('click', apply, false);
 	$('input').addEventListener('submit', submit, false);
 	
-	/* monitor delay input for changes */
+	/* monitor input for key press */
+	$('remind').addEventListener('keypress', enterNote ,false);	
 	$('delay').addEventListener('keypress', unlock ,false);	
 	
 	load();
