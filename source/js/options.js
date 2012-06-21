@@ -64,7 +64,7 @@ function status(msg) {
 	
 	/* show status update for 7 seconds */
 	clearTimeout(hangTimer);
-	hangTimer = setTimeout(function() {
+	hangTimer = setTimeout(function () {
 		hide("msg");
 	}, 7000);	
 }
@@ -255,7 +255,7 @@ function load() {
 	/* Loads the saved values and displays 
 	   it to the user for making changes. */ 
 	
-	var delay = parseInt(widget.preferences.showfor, 10);.
+	var delay = parseInt(widget.preferences.showfor, 10);
 	
 	var key, note;
 	var ul, li, a, txt;
