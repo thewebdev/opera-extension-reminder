@@ -69,3 +69,17 @@ a:hover {
 	padding: 5px;
 	text-align: center;
 }
+#web {
+	margin: 1px;
+	padding: 5px;	
+	text-align: center;
+
+}
+#web a:link, #web a:visited, #web a:active {
+	border: none;
+	background: #fff;
+	color: #585858;
+}
+#web a:hover {
+	font-weight: normal;
+}
