@@ -69,11 +69,21 @@ function unlock() {
 	   (indicated by count). */
 	   
 	if (count === 0) {
-		$('apply').disabled = true;
-		
+		$('apply').disabled = true;	
 	} else {
 		$('apply').disabled = false;
 	}
+}
+
+function useFont() {
+	var checked = document.input.fonty.checked;
+	
+	if (checked) {
+		status("Please save and restart Opera to apply this setting.");
+	}
+	
+	unlock();
+	return;
 }
 
 function genId() {
@@ -100,9 +110,14 @@ function apply() {
 	var ul, li;
 	var save = false;
 	var delay = parseInt(widget.preferences.showfor, 10);
+	var dfont = parseInt(widget.preferences.dfont, 10);
 	
 	i = document.input.delay.value;
-	i = parseInt(i, 10);		
+	i = parseInt(i, 10);
+	
+	checked = document.input.fonty.checked;
+	checked = checked ? 1 : 0;
+
 
 	if ((!i) && (i != 0)) { 
 		/* Validation - delay should be a number */
@@ -157,13 +172,18 @@ function apply() {
 	if (i != delay) {
 		widget.preferences.showfor = i;
 		opera.extension.bgProcess.refresh();
-	}	
+	}
+	
+	/* save default font option */
+	if (checked != dfont) {
+		widget.preferences.dfont = checked;
+	}
 	
 	if (save) {
 		widget.preferences.count = count;
 		/* reload dial with new settings */		
 		opera.extension.bgProcess.init();		
-	}	
+	}
 	
 	$('apply').disabled = true;	
 	return;
@@ -252,13 +272,17 @@ function load() {
 	   it to the user for making changes. */ 
 	
 	var delay = parseInt(widget.preferences.showfor, 10);
-	
+	var dfont = parseInt(widget.preferences.dfont, 10);
 	var key, note;
 	var ul, li, a, txt;
 	var inHtml = document.createDocumentFragment();
 	
 	document.input.delay.value = delay;
-
+	
+	if (dfont) {
+		document.input.fonty.checked = true;
+	} 
+	
 	hide("set");
 	
 	/* Creates a ul list to display 
@@ -331,6 +355,7 @@ function init() {
 	$('add').addEventListener('click', addNote, false); 
 	$('apply').addEventListener('click', apply, false);
 	$('input').addEventListener('submit', submit, false);
+	$('fonty').addEventListener('click', useFont, false);
 	
 	/* monitor input for key press */
 	$('remind').addEventListener('keypress', enterNote ,false);	
