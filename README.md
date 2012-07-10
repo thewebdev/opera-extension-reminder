@@ -12,10 +12,10 @@ The Reminder extension allows you to save notes in your Opera web browser, and d
 1. **Simple, Effective Design**  
 The colour of the Speed Dial changes whenever a different note is displayed. This brings your attention to the Speed Dial, even if you have forgotten about it, and ensures you read your note(s).
 
-2. **Easy to Use**   
+2. **Easy to Use**     
 Just right-click the Speed Dial, select 'Preferences' and add as many notes as you want.
 
-3. **Customizable** 
+3. **Customizable**   
 Use default browser font and / or change the delay between display of each note to suit your preference.
 
 4. **Free to Modify**  
