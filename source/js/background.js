@@ -283,6 +283,16 @@ function refresh() {
 
 function init() {
 	/* start */
+	
+	/* Decide font - the user can 
+	   opt to use the default
+	   browser font else we use the
+	   Arial font */
+	
+	if (!(parseInt(widget.preferences.dfont,10))) {
+		document.body.style.fontFamily = "Arial, Helvetica, sans-serif";
+	}
+	
 	prepData();
 }
 
